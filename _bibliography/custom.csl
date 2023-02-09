@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only">
+  <info>
+    <title>Custom Citation Style</title>
+    <id>http://www.zotero.org/styles/custom</id>
+    <link href="http://www.zotero.org/styles/custom" rel="self"/>
+    <link href="http://www.zotero.org/styles/custom-documentation" rel="documentation"/>
+    <author>
+      <name>Your Name</name>
+      <email>you@example.com</email>
+    </author>
+    <category citation-format="author-date"/>
+    <category field="history"/>
+    <summary>A custom citation style that includes the URL in the title.</summary>
+    <updated>2022-12-01T00:00:00+00:00</updated>
+  </info>
+  <macro name="title">
+    <choose>
+      <if type="book">
+        <text variable="title"/>
+      </if>
+      <if type="article">
+        <text variable="title"/>
+      </if>
+      <else>
+        <text variable="title"/>
+      </else>
+    </choose>
+  </macro>
+  <citation>
+    <layout delimiter=";">
+      <group delimiter=" ">
+        <text macro="title"/>
+        <text value="("/>
+        <text variable="URL"/>
+        <text value=")"/>
+      </group>
+    </layout>
+  </citation>
+  <bibliography>
+    <sort>
+      <key macro="title"/>
+    </sort>
+    <layout>
+      <text macro="title"/>
+    </layout>
+  </bibliography>
+</style>
