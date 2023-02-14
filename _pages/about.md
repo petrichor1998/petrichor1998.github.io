@@ -14,5 +14,7 @@ profile:
 social: true  # includes social icons at the bottom of the page
 ---
 I am a Ph.D. student currently working with [Dr. Gopal Gupta](https://personal.utdallas.edu/~gupta/) at The University of Texas at Dallas. I am broadly interested in the intersection of machine learning and logic programming. My current research focusses on extracting logical rules from CNNs to facilitate explainability
-of the models.
+of the models. 
+
+Outside of research I like playing tennis, learning new songs on my keyboard, reading and wondering about new appplications for AI. 
 
