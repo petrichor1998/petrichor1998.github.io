@@ -1,7 +1,7 @@
 ---
 layout: page
 title: A Deep Dive into Decision Trees and Random Forests
-description: Coding a decision tree classifier and a random forest classifier from scratch and analyzing the performance of the classifiers on different datasets.   
+description: Coding a decision tree and a random forest classifier from scratch and analyzing the performance of the classifiers on different datasets.   
 img: assets/img/project_thumbnails/d_tree.jpg
 importance: 1
 category: ML Projects
