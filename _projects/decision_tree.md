@@ -43,7 +43,7 @@ The random forest classifiers are much better than the decision tree classifiers
 
 The accuracy of the random forest increases as the number of trees in the forest increases. However, the increase in accuracy is not significant after a certain number of trees.
 
-### The Nitty-Gritty
+### The Subtle
 
 1. Python makes implementing algorithms very easy and the code is very readable. I was able to code the decision tree algorithm without much difficulty.
 2. The libraries that are implemented in sklearn are also done by people like me. I looked at the source code for the decision tree classifier in sklearn after the project and it was very insightful.
