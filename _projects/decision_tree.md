@@ -1,7 +1,8 @@
 ---
 layout: page
 title: A Deep Dive into Decision Trees and Random Forests
-description: Coding a decision tree and a random forest classifier from scratch and analyzing the performance of the classifiers on different datasets.   
+description: Coding a decision tree and a random forest classifier from scratch and analyzing the performance of the classifiers on different datasets.
+#skills: Python, sklearn
 img: assets/img/project_thumbnails/d_tree.jpg
 importance: 1
 category: ML Projects
@@ -20,9 +21,11 @@ positive and negative examples from each formula.
 
 The decision tree and random forest classifiers were trained and tested on these datasets. 
 
+The results are tabulated in this [spreadsheet](https://github.com/petrichor1998/DecisionTreeProject/blob/master/Accuracy_Table.xlsx).
+
 ## The Learnings
-I like to categorize my learnings into two categories: The Profound and The Nitty-Gritty.
-The Profound are the key questions that were answered through this project. The Nitty-Gritty are some of the nitty gritty details I learnt from this project. The nitty-gritty learnings could be as subtle as printing finding out that the `print` statement has a parameter called `end` which can be used to change the default newline character to something else. 
+I like to categorize my learnings into two categories: The Profound and The Subtle.
+The Profound are the key questions that were answered through this project. The Subtle could be an intuition I had, insight I discovered or a clever python hack I learnt from this project. For example, `print` statement has a parameter called `end` which can be used to change the default newline character to something else.  
 ### The Profound
 
 **Q1. Which impurity heuristic (Entropy/Variance) yields the best classification accuracy?
