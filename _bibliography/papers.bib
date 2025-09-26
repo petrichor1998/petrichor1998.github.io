@@ -58,3 +58,40 @@
       arxiv = {2303.08941},
       publisher = {arXiv},
 }
+
+@misc{nesyvit,
+  doi = {10.48550/ARXIV.2505.06745},
+  abbr = {ICLP 2025},
+  abstract = {Recent neuro-symbolic approaches have successfully extracted symbolic rule-sets from CNN-based models to enhance interpretability. However, applying similar techniques to Vision Transformers (ViTs) remains challenging due to their lack of modular concept detectors and reliance on global self-attention mechanisms. We propose a framework for symbolic rule extraction from ViTs by introducing a sparse concept layer inspired by Sparse Autoencoders (SAEs). This linear layer operates on attention-weighted patch representations and learns a disentangled, binarized representation in which individual neurons activate for high-level visual concepts. To encourage interpretability, we apply a combination of L1 sparsity, entropy minimization, and supervised contrastive loss. These binarized concept activations are used as input to the FOLD-SE-M algorithm, which generates a rule-set in the form of logic programs. Our method achieves a 5.14% better classification accuracy than the standard ViT while enabling symbolic reasoning. Crucially, the extracted rule-set is not merely post-hoc but acts as a logic-based decision layer that operates directly on the sparse concept representations. The resulting programs are concise and semantically meaningful. This work is the first to extract executable logic programs from ViTs using sparse symbolic representations. It bridges the gap between transformer-based vision models and symbolic logic programming, providing a step forward in interpretable and verifiable neuro-symbolic AI.},
+  url = {https://arxiv.org/abs/2505.06745},
+  author = {Padalkar, Parth and Gupta, Gopal},
+  arxiv = {2505.06745},
+  keywords = {Machine Learning (cs.LG), Artificial Intelligence (cs.AI), Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences, FOS: Computer and information sciences},
+
+  title = {Symbolic Rule Extraction from Attention-Guided Sparse Representations
+                  in Vision Transformers},
+
+  publisher = {arXiv},
+
+  year = {2025},
+
+  copyright = {Creative Commons Attribution Non Commercial No Derivatives 4.0 International}
+}
+
+@misc{nesybicor,
+  doi = {10.1017/S1471068424000322},
+  abbr = {ICLP 2024},
+  abstract = {Recent efforts in interpreting Convolutional Neural Networks (CNNs) focus on translating the activation of CNN filters into a stratified Answer Set Program (ASP) rule-sets. The CNN filters are known to capture high-level image concepts, thus the predicates in the rule-set are mapped to the concept that their corresponding filter represents. Hence, the rule-set exemplifies the decision-making process of the CNN w.r.t the concepts that it learns for any image classification task. These rule-sets help understand the biases in CNNs, although correcting the biases remains a challenge. We introduce a neurosymbolic framework called NeSyBiCor for bias correction in a trained CNN. Given symbolic concepts, as ASP constraints, that the CNN is biased towards, we convert the concepts to their corresponding vector representations. Then, the CNN is retrained using our novel semantic similarity loss that pushes the filters away from (or towards) learning the desired/undesired concepts. The final ASP rule-set obtained after retraining, satisfies the constraints to a high degree, thus showing the revision in the knowledge of the CNN. We demonstrate that our NeSyBiCor framework successfully corrects the biases of CNNs trained with subsets of classes from the "Places" dataset while sacrificing minimal accuracy and improving interpretability.},
+  url = {https://arxiv.org/abs/2405.15886},
+  author = {Padalkar, Parth and Ślusarz, Natalia and  Komendantskaya, Ekaterina and Gupta, Gopal},
+  arxiv = {2405.15886},
+  keywords = {Machine Learning (cs.LG), Artificial Intelligence (cs.AI), Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences, FOS: Computer and information sciences},
+
+  title = {A Neurosymbolic Framework for Bias Correction in Convolutional Neural Networks},
+
+  publisher = {arXiv},
+
+  year = {2024},
+
+  copyright = {Creative Commons Attribution Non Commercial No Derivatives 4.0 International}
+}
