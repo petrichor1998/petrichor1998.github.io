@@ -1,45 +1,28 @@
-name: Deploy site
-
-on:
-  push:
-    branches: [ master, main ]
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2'
-          bundler-cache: true
+          ruby-version: '3.2'      # ok
+          bundler-cache: false     # <-- turn off auto bundle
+
+      # system deps used by some gems / imagemagick plugin
+      - name: Install system packages
+        run: sudo apt-get update && sudo apt-get install -y build-essential libmagickwand-dev
+
+      # avoid platform mismatch for native gems
+      - name: Bundler config
+        run: bundle config set force_ruby_platform true
 
       - name: Install dependencies
-        run: bundle install
+        run: bundle install --jobs 4 --retry 3
 
       - name: Build site
-        run: bundle exec jekyll build --trace
+        run: JEKYLL_ENV=production bundle exec jekyll build --trace
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
