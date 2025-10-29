@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "3.2.9"          # important: matches the workflow runner
+ruby "3.0.2"          # important: matches the workflow runner
 
 # Core
 gem "jekyll", "~> 4.3"
@@ -29,3 +29,5 @@ group :other_plugins do
   gem "httparty"
   gem "feedjira"
 end
+
+gem "jekyll-imagemagick", "~> 1.4"
