@@ -18,22 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - uses: ruby/setup-ruby@v1
+      - uses: actions/configure-pages@v5
+      - uses: actions/jekyll-build-pages@v1
         with:
-          ruby-version: '3.1'   # modern Ruby avoids the uri conflict
-          bundler-cache: true
-
-      # If you actually use Mermaid CLI output in the repo, keep this.
-      # Otherwise you can delete this step.
-      - name: (Optional) Install mermaid CLI
-        run: npm install -g @mermaid-js/mermaid-cli
-
-      - name: Build Jekyll site
-        run: JEKYLL_ENV=production bundle exec jekyll build --trace
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+          source: ./
+          destination: ./_site
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
