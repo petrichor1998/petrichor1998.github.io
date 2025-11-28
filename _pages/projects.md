@@ -3,11 +3,12 @@ layout: page
 title: Projects
 permalink: /Projects/
 description: Its what I do that defines me...
-nav: true
-nav_order: 2
+nav: false        # <-- hides it from navbar
+nav_exclude: true # <-- double-sure (al-folio supports this)
 display_categories: [ML Projects]
 horizontal: false
 ---
+
 
 <!-- pages/projects.md -->
 <div class="projects">

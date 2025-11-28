@@ -31,3 +31,4 @@ group :other_plugins do
 end
 
 gem "jekyll-imagemagick", "~> 1.4"
+gem "google-protobuf", "~> 3.25"
