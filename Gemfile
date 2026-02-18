@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "3.2.9"          # important: matches the workflow runner
+ruby "~> 3.2.0"         # important: matches the workflow runner
 
 # Core
 gem "jekyll", "~> 4.3"
