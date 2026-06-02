@@ -13,8 +13,15 @@ news: true # (news: true  # includes a list of news items)
 [//]: # (selected_papers: true # includes a list of papers marked as "selected={true}")
 social: true  # includes social icons at the bottom of the page
 ---
-I’m a Ph.D. candidate in Computer Science at The University of Texas at Dallas and a Templeton Graduate Fellow. My Ph.D. advisor is [Dr. Gopal Gupta](https://personal.utdallas.edu/~gupta/) and my research explores how to bridge neural and symbolic AI, inspired by System 1 and System 2 thinking i.e., the fast, intuitive reasoning of neural networks and the slow, deliberate logic of symbolic systems. I love digging deep into neural architectures to design models that are intrinsically explainable and capable of reasoning by design.
+I am an Assistant Professor of Computer Science at [Texas State University](https://www.txst.edu?utm_source=chatgpt.com) (Starting Fall 2026). 
 
-I created NeSyFOLD and NeSyViT, frameworks that extract human-readable rules from deep models thus making image classification models transparent without sacrificing accuracy. My work has been published at AAAI and ICLP (TPLP Journal), earning an oral presentation at AAAI 2024 and a Best Student Paper nomination at ICLP 2024.
+My work focuses on Neuro-Symbolic AI, interpretable machine learning, large language model reasoning, and explainable computer vision. A central theme of my research is combining the learning capabilities of neural networks with the transparency and reasoning power of symbolic systems.
 
-When I’m not thinking about AI, you’ll probably find me on a tennis court or at a piano, enjoying the rhythm of both sport and sound.
+During my doctoral work at [The University of Texas at Dallas](https://www.utdallas.edu?utm_source=chatgpt.com), I developed frameworks for extracting interpretable symbolic rules from deep learning systems, including convolutional neural networks and Vision Transformers. I also worked on improving reasoning abilities of LLMs using logic.
+
+Alongside research, I care deeply about teaching and mentorship. I enjoy creating hands-on learning experiences, mentoring student researchers, and helping students build confidence in computer science and AI.
+
+Outside research and teaching, I enjoy building educational projects, optimizing my finances, playing tennis, running and learning the piano.
+
+
+I am looking for students who are passionate about my research directions to join my lab from Spring 2027. If you are interested please fill out [this form](https://docs.google.com/forms/d/16XM0GMKQQlo-qKE__uT5FqX2Ywir5HEZ_thpxEeQTCs/edit).
