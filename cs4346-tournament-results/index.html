@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Anonymous standings, color statistics, and official results for the CS 4346 Morris AI Tournament."
+    />
+    <meta name="theme-color" content="#501214" />
+    <title>CS 4346 — Morris AI Tournament</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="title-block">
+          <p class="kicker">Tournament results</p>
+          <h1>CS 4346 <span aria-hidden="true">—</span> Morris AI Tournament</h1>
+          <p class="term">Fall 2026</p>
+        </div>
+
+        <nav aria-label="Tournament sections">
+          <a href="#standings">Standings</a>
+          <a href="#color-stats">Color Stats</a>
+          <a href="#results">Results</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="tournament-content" aria-busy="true">
+      <section id="standings" aria-labelledby="standings-heading">
+        <div class="section-heading">
+          <div>
+            <p class="section-number" aria-hidden="true">01</p>
+            <h2 id="standings-heading">Standings</h2>
+          </div>
+          <p>Ranked by points, then wins, then team ID.</p>
+        </div>
+
+        <div
+          class="table-scroll"
+          role="region"
+          aria-labelledby="standings-heading"
+          tabindex="0"
+        >
+          <table>
+            <caption class="visually-hidden">
+              Overall tournament standings
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Rank</th>
+                <th scope="col">Team</th>
+                <th scope="col">Matches</th>
+                <th scope="col">Wins</th>
+                <th scope="col">Losses</th>
+                <th scope="col">Draws</th>
+                <th scope="col">Points</th>
+              </tr>
+            </thead>
+            <tbody id="standings-body"></tbody>
+          </table>
+        </div>
+
+        <p class="table-note">
+          Each official matchup consists of two games, one as White and one as
+          Black. Matches counts completed two-game matchups, while wins,
+          losses, draws, and points are calculated per individual game.
+        </p>
+      </section>
+
+      <section id="color-stats" aria-labelledby="color-heading">
+        <div class="section-heading">
+          <div>
+            <p class="section-number" aria-hidden="true">02</p>
+            <h2 id="color-heading">Performance by Color</h2>
+          </div>
+          <p>Game results separated by the side each team played.</p>
+        </div>
+
+        <div
+          class="table-scroll"
+          role="region"
+          aria-labelledby="color-heading"
+          tabindex="0"
+        >
+          <table>
+            <caption class="visually-hidden">
+              Team performance while playing White and Black
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Team</th>
+                <th scope="col">White W</th>
+                <th scope="col">White L</th>
+                <th scope="col">White D</th>
+                <th scope="col">Black W</th>
+                <th scope="col">Black L</th>
+                <th scope="col">Black D</th>
+              </tr>
+            </thead>
+            <tbody id="color-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="results" aria-labelledby="results-heading">
+        <div class="section-heading">
+          <div>
+            <p class="section-number" aria-hidden="true">03</p>
+            <h2 id="results-heading">Official Results</h2>
+          </div>
+          <p>Only completed, official two-game matchups are listed.</p>
+        </div>
+
+        <p id="results-empty" class="empty-state">Loading official results…</p>
+
+        <div
+          id="results-table-wrapper"
+          class="table-scroll"
+          role="region"
+          aria-labelledby="results-heading"
+          tabindex="0"
+          hidden
+        >
+          <table class="results-table">
+            <caption class="visually-hidden">
+              Completed official tournament matchups
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Matchup</th>
+                <th scope="col">Game 1</th>
+                <th scope="col">Game 2</th>
+              </tr>
+            </thead>
+            <tbody id="results-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <p id="data-notice" class="data-notice" role="status" hidden></p>
+
+      <noscript>
+        <p class="data-notice">
+          JavaScript is required to calculate and display tournament results.
+        </p>
+      </noscript>
+    </main>
+
+    <footer>
+      <p>Public results use anonymous team IDs only.</p>
+    </footer>
+  </body>
+</html>
