@@ -51,6 +51,16 @@ jobs:
       - name: Build site
         run: JEKYLL_ENV=production bundle exec jekyll build --trace
 
+      - name: Verify AI atlas output
+        run: |
+          test -s _site/ai-map/index.html
+          test -s _site/ai-map/app.js
+          test -s _site/ai-map/model.js
+          test -s _site/ai-map/content.json
+          test -s _site/ai-map/progress.json
+          test -s _site/ai-map/lib/d3.v7.9.0.min.js
+          test -s _site/ai-map/lib/D3-LICENSE.txt
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
