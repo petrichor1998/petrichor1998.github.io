@@ -23,6 +23,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Validate AI atlas content
+        run: node ai-map/validate.mjs
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'

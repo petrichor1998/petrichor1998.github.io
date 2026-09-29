@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ed">
+  <meta name="description" content="Explore the ideas, people, and connections behind search, game playing, and logic. An unfolding history of AI for CS 4346.">
+  <title>AI Discovery Atlas · CS 4346</title>
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./vendor/d3.v7.9.0.min.js" defer></script>
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#atlas-controls">Skip to atlas controls</a>
+  <header class="site-header">
+    <a href="../" class="home-link" aria-label="Back to faculty website"><span aria-hidden="true">↖</span> Parth Padalkar</a>
+    <span class="course-label" id="course-label">CS 4346 · Introduction to Artificial Intelligence</span>
+    <a class="about-link" href="#reading-the-map">How to read the map <span aria-hidden="true">↘</span></a>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow"><span class="atlas-symbol" aria-hidden="true">✳</span> A field guide to connected ideas</p>
+        <h1 id="page-title">AI Discovery <em>Atlas</em><span class="title-dot" aria-hidden="true">.</span></h1>
+        <p class="intro-copy">Every idea has a history. Every lesson opens a new connection.<br class="desktop-break"> Follow the people, problems, and discoveries behind the AI you’re learning.</p>
+      </div>
+      <div class="progress-card" aria-label="Course discovery progress">
+        <p class="eyebrow">Your class expedition</p>
+        <p class="progress-number"><span id="discovered-count">—</span><span class="progress-denominator"> / <span id="total-count">—</span></span></p>
+        <p class="progress-caption">course topics discovered</p>
+        <div class="progress-track" aria-hidden="true"><span id="progress-fill"></span></div>
+        <p class="current-caption" id="current-caption">Loading the atlas…</p>
+      </div>
+    </section>
+
+    <div id="load-error" class="error-box" role="alert" hidden></div>
+    <noscript><p class="error-box">This atlas needs JavaScript for its timeline and lesson controls. Please enable JavaScript and reload.</p></noscript>
+
+    <section class="atlas-shell" id="atlas-controls" aria-label="Interactive discovery atlas" tabindex="-1" hidden>
+      <div class="toolbar">
+        <div class="checkpoint-controls">
+          <label for="checkpoint">Course checkpoint</label>
+          <div class="checkpoint-picker">
+            <button id="previous" class="square-button" type="button" aria-label="Previous course checkpoint">←</button>
+            <select id="checkpoint" aria-describedby="checkpoint-hint"></select>
+            <button id="next" class="square-button" type="button" aria-label="Next course checkpoint">→</button>
+          </div>
+          <span id="checkpoint-hint" class="sr-only">Review any checkpoint up to the latest lesson published by your instructor.</span>
+        </div>
+        <button id="replay" class="replay-button" type="button"><span aria-hidden="true">▷</span> <span id="replay-label">Replay this lesson’s discoveries</span></button>
+        <div class="view-switch" role="group" aria-label="Atlas view">
+          <button id="map-view" type="button" aria-pressed="true">Timeline</button>
+          <button id="list-view" type="button" aria-pressed="false">List</button>
+        </div>
+      </div>
+
+      <div class="lesson-story"><span class="story-marker" aria-hidden="true"></span><p id="lesson-story"></p><span id="lesson-position" class="lesson-position"></span></div>
+
+      <div class="atlas-columns">
+        <section class="map-column" aria-label="Historical map">
+          <div class="map-heading">
+            <div><p class="eyebrow">One history. Parallel paths.</p><p class="map-instructions" id="map-help">Select a topic to trace its connections. Drag to travel; use + and − to zoom.</p></div>
+            <div class="zoom-controls" role="group" aria-label="Timeline zoom">
+              <button class="square-button" id="zoom-out" type="button" aria-label="Zoom out">−</button>
+              <button class="square-button" id="zoom-in" type="button" aria-label="Zoom in">+</button>
+              <button class="fit-button" id="zoom-fit" type="button">Fit all</button>
+            </div>
+          </div>
+          <div class="map-scroll" id="map-container" aria-label="Scrollable historical timeline">
+            <svg id="timeline" role="group" aria-label="Topics in three historical lanes" aria-describedby="map-help"></svg>
+          </div>
+          <div id="topic-list" class="topic-list" hidden aria-label="Topics in chronological order"></div>
+          <div class="map-legend" aria-label="Map legend">
+            <span><i class="legend-line historical" aria-hidden="true"></i> Historical influence</span>
+            <span><i class="legend-line technical" aria-hidden="true"></i> Technical relationship</span>
+            <span><i class="legend-line comparison" aria-hidden="true"></i> Teaching comparison</span>
+            <span><i class="legend-diamond" aria-hidden="true"></i> Historical context</span>
+          </div>
+          <p class="map-footnote">Position means time, not progress. Dates mark specific milestones; see each card for the fuller history.</p>
+        </section>
+
+        <aside class="detail-panel" id="detail-panel" aria-labelledby="detail-title">
+          <div class="detail-topline"><p class="eyebrow">Field notes</p><button type="button" id="copy-link" class="text-button">Copy topic link <span aria-hidden="true">↗</span></button></div>
+          <div id="detail-content"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="reading-guide" id="reading-the-map" aria-labelledby="reading-title">
+      <div><p class="eyebrow">A note from the mapmaker</p><h2 id="reading-title">History is a network.<br>Your course is a path through it.</h2></div>
+      <div><p>Ideas can develop at the same time, be rediscovered, or meet decades later. The map separates documented influence, technical relationships, and classroom comparisons. An arrow never means “came next” by itself.</p><p>Each card names contributors, explains what its date represents, and links to sources. Diamonds mark historical context; unnamed silhouettes are discoveries waiting for a future lesson.</p></div>
+    </section>
+  </main>
+  <footer><span>CS 4346 · AI Discovery Atlas</span><span>Built for curiosity. Grounded in sources.</span><a href="./vendor/D3-LICENSE.txt">D3 license</a></footer>
+  <div class="sr-only" id="announcements" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
