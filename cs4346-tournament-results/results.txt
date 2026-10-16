@@ -2,3 +2,7 @@ CS 4346 Morris AI Tournament
 Official results — Fall 2026
 
 Only lines beginning with MATCH| are processed by the website.
+MATCH|T01|T02|B|D|2026-10-14
+MATCH|T01|T11|A|D|2026-10-14
+MATCH|T01|T10|B|A|2026-10-14
+
