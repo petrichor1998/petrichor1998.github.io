@@ -21,7 +21,7 @@ During my doctoral work at [The University of Texas at Dallas](https://www.utdal
 
 Alongside research, I care deeply about teaching and mentorship. I enjoy creating hands-on learning experiences, mentoring student researchers, and helping students build confidence in computer science and AI.
 
-Explore my [teaching resources]({{ '/teaching/' | relative_url }}), including the interactive [AI Discovery Atlas]({{ '/ai-map/' | relative_url }}) for Introduction to Artificial Intelligence.
+Explore my [teaching resources]({{ '/teaching/' | relative_url }}) for Introduction to Artificial Intelligence.
 
 Outside research and teaching, I enjoy building educational projects, optimizing my finances, playing tennis, running and learning the piano.
 

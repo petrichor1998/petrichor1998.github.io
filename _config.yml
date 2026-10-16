@@ -185,6 +185,7 @@ kramdown:
 # Includes & excludes
 include: ['_pages']
 exclude:
+  - ai-map
   - bin
   - Gemfile
   - Gemfile.lock
