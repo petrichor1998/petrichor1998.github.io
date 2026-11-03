@@ -391,6 +391,10 @@ async function init() {
       const option = el('option', '', `${String(index + 1).padStart(2, '0')} · ${checkpoint.label}`); option.value = String(index); $('checkpoint').append(option);
     }
     chooseDefault(); $('atlas-controls').hidden = false;
+    const toolbar = document.querySelector('.toolbar');
+    const updateToolbarHeight = () => document.documentElement.style.setProperty('--toolbar-height', `${toolbar.getBoundingClientRect().height}px`);
+    updateToolbarHeight();
+    new ResizeObserver(updateToolbarHeight).observe(toolbar);
     setupGraph(); renderAll(); followHash();
     $('checkpoint').addEventListener('change', event => setCheckpoint(Number(event.target.value)));
     $('previous').addEventListener('click', () => setCheckpoint(state.checkpoint - 1));
