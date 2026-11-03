@@ -185,7 +185,8 @@ kramdown:
 # Includes & excludes
 include: ['_pages']
 exclude:
-  - ai-map
+  - ai-map/package.json
+  - ai-map/validate.mjs
   - bin
   - Gemfile
   - Gemfile.lock

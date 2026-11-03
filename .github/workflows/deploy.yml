@@ -51,9 +51,17 @@ jobs:
       - name: Build site
         run: JEKYLL_ENV=production bundle exec jekyll build --trace
 
-      - name: Verify AI atlas remains unpublished
+      - name: Verify AI atlas publication
         run: |
-          test ! -e _site/ai-map
+          test -s _site/ai-map/index.html
+          test -s _site/ai-map/content.json
+          test -s _site/ai-map/progress.json
+          test -s _site/ai-map/app.js
+          test -s _site/ai-map/model.js
+          test -s _site/ai-map/style.css
+          test -s _site/ai-map/lib/d3.v7.9.0.min.js
+          grep -q 'href="/ai-map/"' _site/index.html
+          grep -q 'href="/ai-map/"' _site/teaching/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
