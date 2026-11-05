@@ -25,6 +25,8 @@
           <a href="#standings">Standings</a>
           <a href="#color-stats">Color Stats</a>
           <a href="#results">Results</a>
+          <a href="#percentages">Percentages</a>
+          <a href="#honorable-mentions">Honorable Mentions</a>
         </nav>
       </div>
     </header>
@@ -140,6 +142,63 @@
             <tbody id="results-body"></tbody>
           </table>
         </div>
+      </section>
+
+      <section id="percentages" aria-labelledby="percentages-heading">
+        <div class="section-heading">
+          <div>
+            <p class="section-number" aria-hidden="true">04</p>
+            <h2 id="percentages-heading">Outcome Percentages by Color</h2>
+          </div>
+          <p id="percentages-summary">Calculated from completed official games.</p>
+        </div>
+
+        <div class="table-scroll" role="region" aria-labelledby="percentages-heading" tabindex="0">
+          <table class="summary-table">
+            <caption class="visually-hidden">Tournament win, draw, and loss percentages by color</caption>
+            <thead>
+              <tr>
+                <th scope="col">Outcome</th>
+                <th scope="col">Playing White</th>
+                <th scope="col">Playing Black</th>
+              </tr>
+            </thead>
+            <tbody id="percentages-body"></tbody>
+          </table>
+        </div>
+        <p class="table-note">
+          Each percentage uses games played in that color as the denominator.
+          Draws count separately from wins. Counts are shown alongside percentages.
+        </p>
+      </section>
+
+      <section id="honorable-mentions" aria-labelledby="mentions-heading">
+        <div class="section-heading">
+          <div>
+            <p class="section-number" aria-hidden="true">05</p>
+            <h2 id="mentions-heading">Honorable Mentions</h2>
+          </div>
+          <p>Recognizing the leading teams in each color category.</p>
+        </div>
+
+        <div class="table-scroll" role="region" aria-labelledby="mentions-heading" tabindex="0">
+          <table class="mentions-table">
+            <caption class="visually-hidden">Teams with the highest win and draw rates and lowest loss rates by color</caption>
+            <thead>
+              <tr>
+                <th scope="col">Recognition</th>
+                <th scope="col">Teams</th>
+                <th scope="col">Percentage</th>
+              </tr>
+            </thead>
+            <tbody id="mentions-body"></tbody>
+          </table>
+        </div>
+        <p class="table-note">
+          All ties are included. Loss recognition goes to the lowest loss rate.
+          Teams with no games in a color are excluded. Percentages reflect the
+          recorded games so far; teams may have played different numbers of games.
+        </p>
       </section>
 
       <p id="data-notice" class="data-notice" role="status" hidden></p>

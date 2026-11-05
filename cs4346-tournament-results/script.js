@@ -216,6 +216,87 @@
     );
   }
 
+  function gamesForColor(colorStats) {
+    return colorStats.wins + colorStats.draws + colorStats.losses;
+  }
+
+  function calculateColorHighlights(statistics) {
+    const teams = Array.from(statistics.values());
+    const totals = {
+      white: { wins: 0, draws: 0, losses: 0 },
+      black: { wins: 0, draws: 0, losses: 0 },
+    };
+    teams.forEach((team) => {
+      for (const color of ["white", "black"]) {
+        for (const outcome of ["wins", "draws", "losses"]) {
+          totals[color][outcome] += team[color][outcome];
+        }
+      }
+    });
+
+    const mentions = [];
+    for (const outcome of ["wins", "draws", "losses"]) {
+      for (const color of ["white", "black"]) {
+        const eligible = teams.filter((team) => gamesForColor(team[color]) > 0);
+        const rate = (team) => team[color][outcome] / gamesForColor(team[color]);
+        const best = eligible.length
+          ? Math[outcome === "losses" ? "min" : "max"](...eligible.map(rate))
+          : null;
+        mentions.push({
+          outcome,
+          color,
+          leaders: eligible
+            .filter((team) => rate(team) === best)
+            .sort((left, right) => left.id.localeCompare(right.id)),
+        });
+      }
+    }
+    return { totals, mentions };
+  }
+
+  function formatOutcome(count, total) {
+    if (total === 0) return "No games yet";
+    const percentage = new Intl.NumberFormat("en-US", {
+      style: "percent",
+      maximumFractionDigits: 1,
+    }).format(count / total);
+    return `${percentage} (${count}/${total})`;
+  }
+
+  function renderColorHighlights(statistics, records) {
+    const { totals, mentions } = calculateColorHighlights(statistics);
+    const outcomes = { wins: "Win", draws: "Draw", losses: "Loss" };
+    const summaryFragment = document.createDocumentFragment();
+    for (const outcome of ["wins", "draws", "losses"]) {
+      const row = document.createElement("tr");
+      appendCell(row, outcomes[outcome], { header: true });
+      for (const color of ["white", "black"]) {
+        appendCell(row, formatOutcome(totals[color][outcome], gamesForColor(totals[color])));
+      }
+      summaryFragment.appendChild(row);
+    }
+    document.getElementById("percentages-body").replaceChildren(summaryFragment);
+    document.getElementById("percentages-summary").textContent =
+      `${records.length * 2} games across ${records.length} completed matchups.`;
+
+    const mentionsFragment = document.createDocumentFragment();
+    mentions.forEach(({ outcome, color, leaders }) => {
+      const row = document.createElement("tr");
+      const label = outcome === "losses" ? "Lowest loss" : outcome === "wins" ? "Highest win" : "Highest draw";
+      appendCell(row, `${label} rate as ${color === "white" ? "White" : "Black"}`, { header: true });
+      appendCell(row, leaders.length ? leaders.map((team) => teamLabel(team.id)).join(", ") : "No games yet");
+      // Include each denominator if tied teams have different sample sizes.
+      const results = [...new Set(leaders.map((team) =>
+        formatOutcome(team[color][outcome], gamesForColor(team[color])),
+      ))];
+      appendCell(row, results.length === 1 ? results[0] : leaders.map((team) =>
+        `${teamLabel(team.id)}: ${formatOutcome(team[color][outcome], gamesForColor(team[color]))}`,
+      ).join("; ") || "No games yet");
+      mentionsFragment.appendChild(row);
+    });
+    document.getElementById("mentions-body").replaceChildren(mentionsFragment);
+  }
+
   function teamLabel(teamId) {
     const team = TEAM_CONFIG.find((entry) => entry.id === teamId);
     return team && team.publicName ? `${team.id} — ${team.publicName}` : teamId;
@@ -350,6 +431,7 @@
     renderStandings(statistics);
     renderColorStatistics(statistics);
     renderOfficialResults(records);
+    renderColorHighlights(statistics, records);
   }
 
   async function initialize() {
@@ -386,6 +468,7 @@
     matchupToGames,
     calculateStatistics,
     sortStandings,
+    calculateColorHighlights,
   });
 
   if (typeof module !== "undefined" && module.exports) {

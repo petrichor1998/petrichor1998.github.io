@@ -232,6 +232,26 @@ tbody th[scope="row"] {
   min-width: 58rem;
 }
 
+.summary-table {
+  min-width: 30rem;
+}
+
+.summary-table th:first-child,
+.summary-table td:first-child,
+.mentions-table th,
+.mentions-table td {
+  text-align: left;
+}
+
+.summary-table th:nth-child(2),
+.summary-table td:nth-child(2) {
+  text-align: right;
+}
+
+.mentions-table th:first-child {
+  width: 36%;
+}
+
 .results-table th:first-child,
 .results-table td:first-child {
   width: 9.5rem;
